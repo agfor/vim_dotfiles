@@ -6,26 +6,6 @@ if &shell == "/usr/bin/sudosh"
   set shell=/bin/bash
 endif
 
-" Install vim plugins
-let plugged_path = "~/.vim/plugged"
-
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
-elseif filereadable(expand("~/.vim/vimrc.bundles"))
-  source ~/.vim/vimrc.bundles
-endif
-
-if filereadable(expand("/etc/vim/vimrc.bundles"))
-  source /etc/vim/vimrc.bundles
-  let plugged_path = "/etc/vim/plugged"
-endif
-
-if !isdirectory(expand(plugged_path))
-  autocmd VimEnter * PlugInstall --sync
-endif
-
-" ========= Options ========
-
 compiler ruby
 syntax on
 set hlsearch
